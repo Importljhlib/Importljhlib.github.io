@@ -108,7 +108,7 @@ x에는 넘파이의 arange 메서드로 [0, 0.1, 0.2 …. 5.8, 5.9]라는 데�
 
 결과는 다음과 같다.
 
-![](img/DLFS_sin.png.png)
+![](/img/DLFS_sin.png)
 
 다양한 기능을 사용해보자.
 
@@ -130,6 +130,6 @@ plt.legend()
 plt.show()
 ```
 
-![](img/DLFS_sincos.png.png)
+![](/img/DLFS_sincos.png)
 
 cos 그래프는 점선, 제목과 축 이름이 생긴 것을 볼 수 있다.
