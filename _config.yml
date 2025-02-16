@@ -48,6 +48,7 @@ highlight:
 markdown: kramdown
 kramdown:
     input: GFM
+    math_engine: mathjax
 
 # Default Attributes
 ## Docs: https://jekyllrb.com/docs/configuration/#front-matter-defaults
