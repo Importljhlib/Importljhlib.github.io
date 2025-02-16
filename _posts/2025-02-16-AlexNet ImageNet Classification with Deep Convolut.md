@@ -1,6 +1,6 @@
 ---
 layout: post
-title: AlexNet: ImageNet Classification with Deep Convolutional Neural Networks
+title: ImageNet Classification with Deep Convolutional Neural Networks
 date: 2025-02-16 01:53:00 + 0900
 category: paper
 ---
