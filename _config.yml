@@ -35,7 +35,7 @@ navbar-links:
 avatar: "/assets/img/webprofile.jpg"
 
 # By default, the image is cut into a circle. You can disable this behaviour by setting 'round-avatar: false'
-round-avatar: true
+round-avatar: false
 
 # If you want to have an image logo in the top-left corner instead of having the title of the website,
 # then specify the following parameter
@@ -53,7 +53,7 @@ social-network-links:
   email: "gogozzi1102@gmail.com"
   # rss: true  # remove this line if you don't want to show an RSS link at the bottom
   #facebook: deanattali
-  #github: daattali
+  github: importljhlib
   #twitter: daattali
   #patreon: DeanAttali
   #youtube: "@daattali"
