@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 모델을 overfitting하게 만들어보자자
+title: 모델을 overfitting하게 만들어보자
 date: 2025-03-03 01:53:00 + 0900
 category: experiment
 ---
