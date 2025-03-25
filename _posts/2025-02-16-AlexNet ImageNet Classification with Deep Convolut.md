@@ -197,3 +197,8 @@ GPU 1에서는 color 정보를 고려하지 않고 학습한 반면에, GPU 2는
 두 개의 4096차원에서 실수값 벡터의 유클리드 거리의 유사도를 계산하는 것보다 오토 인코더를 이용하여 짧은 이진코드로 벡터를 압축하여 훈련하는 것이 더 효율적이다.
 
 이미지 라벨을 사용하지 않기 때문에 유사한 edge 패턴을 가진 이미지를 검색하는 경향이 있는 raw 픽셀에 오토 인코더를 적용하는 것보다 훨씬 좋은 이미지 검색 방법이다.
+
+<script type="text/javascript" async
+  src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
