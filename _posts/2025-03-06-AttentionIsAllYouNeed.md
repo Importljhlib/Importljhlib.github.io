@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Transformer - Attention Is All You Need
+title: "Transformer : Attention Is All You Need"
 date: 2025-03-06 01:53:00 + 0900
 category: paper
 ---
