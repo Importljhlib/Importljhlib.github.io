@@ -1,0 +1,17 @@
+name: Ping Google with Sitemap
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'sitemap.xml'
+  workflow_dispatch:
+
+jobs:
+  ping-google:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Ping Google with sitemap
+      run: |
+        curl "https://www.google.com/ping?sitemap=https://importljhlib.github.io/sitemap.xml"
