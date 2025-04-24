@@ -132,3 +132,8 @@ Loss 계산은 다음과 같은 함수들로 이루어진다.
 ![](/img/MRSGANSR/image%202.png)
 
 ![](/img/MRSGANSR/image%203.png)
+
+<script type="text/javascript" async
+  src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
