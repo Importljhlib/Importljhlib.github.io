@@ -3,6 +3,10 @@ layout: page
 type: about
 ---
 
+---
+title: About
+---
+
 <div class="about-profile">
   <div class="profile-image-wrapper">
     <img src="/img/about/image.png" alt="Jaehyeon Lee Profile Picture" class="profile-image">
@@ -30,28 +34,109 @@ type: about
 
 <h2>Projects and Publications</h2>
 <div class="projects-grid-container">
-  <div class="custom-project-card">
-    <h3>Learning and Adapting Phase Prediction Network for AR Glass</h3>
-    <p class="card-description">Phase of Hologram Prediction Network를 다양한 hardware 조건에서 Learning and Adapting 방법론 개발</p>
-    <div class="card-tags">
-      <span class="tag research">research</span>
-      <span class="tag status">진행중</span>
-      <span class="tag">AR glass</span>
-      <span class="tag">Computer Vision</span>
-      <span class="tag">Deep Learning</span>
-      <span class="tag">holography</span>
+
+  <div class="custom-project-card" 
+       data-modal-image="/assets/images/projects/project1.jpg" 
+       data-modal-title="Learning and Adapting Phase Prediction Network for AR Glass" 
+       data-modal-intro="Phase of Hologram Prediction Network를 다양한 hardware 조건에서 Learning and Adapting 방법론 개발" 
+       data-modal-keywords="AR glass, Computer Vision, Deep Learning, Image restoration, Optics, holography" 
+       data-modal-date="2025-06-01" 
+       data-modal-type="research, 진행중" 
+       data-modal-notes="CVPR 2026 붙고싶다。">
+    <img src="/img/about/big-buck-bunny-thumbnail.jpg" alt="Project 1 Image" class="card-image">
+    <div class="card-content">
+      <h3>Learning and Adapting Phase Prediction Network for AR Glass</h3>
+      <p class="card-description">Phase of Hologram Prediction Network를 다양한 hardware 조건에서 Learning and Adapting 방법론 개발</p>
+      <div class="card-tags">
+        <span class="tag research">research</span>
+        <span class="tag status">진행중</span>
+      </div>
     </div>
   </div>
-  <div class="custom-project-card">
-    <h3>Moomu</h3>
-    <p class="card-description">AI 기반 무드보드 추천 웹서비스</p>
-    <div class="card-tags">
-      <span class="tag project">project</span>
-      <span class="tag status">진행중</span>
-      <span class="tag">AI</span>
-      <span class="tag">backend</span>
-      <span class="tag">frontend</span>
-      <span class="tag">web service</span>
+
+  <div class="custom-project-card"
+       data-modal-image="/assets/images/projects/project2.png" 
+       data-modal-title="Moomu" 
+       data-modal-intro="AI 기반 무드보드 추천 웹서비스" 
+       data-modal-keywords="AI, backend, frontend, web service" 
+       data-modal-date="2025-07-01" 
+       data-modal-type="project, 진행중" 
+       data-modal-notes="">
+    <img src="/img/about/Moomu.jpg" alt="Project 2 Image" class="card-image">
+    <div class="card-content">
+      <h3>Moomu</h3>
+      <p class="card-description">AI 기반 무드보드 추천 웹서비스</p>
+      <div class="card-tags">
+        <span class="tag project">project</span>
+        <span class="tag status">진행중</span>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<div id="project-modal" class="modal-overlay">
+  <div class="modal-content">
+    <button class="modal-close-button">&times;</button>
+    <img id="modal-img" src="" alt="Project detail image">
+    <h2 id="modal-title"></h2>
+    <div class="modal-details">
+      <p><strong>소개:</strong> <span id="modal-intro"></span></p>
+      <p><strong>키워드:</strong> <span id="modal-keywords"></span></p>
+      <p><strong>날짜:</strong> <span id="modal-date"></span></p>
+      <p><strong>유형:</strong> <span id="modal-type"></span></p>
+      <p id="modal-notes-container"><strong>비고:</strong> <span id="modal-notes"></span></p>
     </div>
   </div>
 </div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.custom-project-card');
+    const modal = document.getElementById('project-modal');
+    const modalCloseButton = modal.querySelector('.modal-close-button');
+    const modalOverlay = document.querySelector('.modal-overlay');
+
+    if (!modal) return;
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            // 카드로부터 데이터 읽어오기
+            const data = card.dataset;
+            
+            // 모달에 데이터 채우기
+            document.getElementById('modal-img').src = data.modalImage;
+            document.getElementById('modal-title').textContent = data.modalTitle;
+            document.getElementById('modal-intro').textContent = data.modalIntro;
+            document.getElementById('modal-keywords').textContent = data.modalKeywords;
+            document.getElementById('modal-date').textContent = data.modalDate;
+            document.getElementById('modal-type').textContent = data.modalType;
+
+            const notesContainer = document.getElementById('modal-notes-container');
+            const notesSpan = document.getElementById('modal-notes');
+            if (data.modalNotes && data.modalNotes.trim() !== '') {
+                notesSpan.textContent = data.modalNotes;
+                notesContainer.style.display = 'block';
+            } else {
+                notesContainer.style.display = 'none';
+            }
+            
+            // 모달 보이기
+            modal.style.display = 'flex';
+        });
+    });
+
+    function closeModal() {
+        modal.style.display = 'none';
+    }
+
+    // 닫기 버튼 또는 모달 바깥 영역 클릭 시 모달 닫기
+    modalCloseButton.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', function(event) {
+        if (event.target === modalOverlay) {
+            closeModal();
+        }
+    });
+});
+</script>
