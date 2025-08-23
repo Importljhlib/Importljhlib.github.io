@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const notesSpan = document.getElementById('modal-notes');
             if (data.modalNotes && data.modalNotes.trim() !== '') {
                 notesSpan.textContent = data.modalNotes;
-                notesContainer.style.display = 'block';
+                notesContainer.style.display = 'grid';
             } else {
                 notesSpan.textContent = '';
                 notesContainer.style.display = 'none';
@@ -146,3 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
+<style>
+/* 스타일은 _sass/custom/_custom.scss 파일로 이동 */
+</style>
