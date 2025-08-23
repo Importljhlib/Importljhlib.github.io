@@ -1,124 +1,117 @@
-/* About 페이지 커스텀 스타일 (레이아웃 최종 수정) */
+/* About 페이지 커스텀 스타일 (우선순위 최종 강화) */
 
-.post-body {
-  /* --- 프로필 섹션 (정렬 수정) --- */
+/* 테마의 기본 스타일을 이기기 위해 모든 선택자 앞에 `.page.type-about .post-body`를 붙여
+  About 페이지에만 아주 강력하게 적용되도록 지정합니다.
+*/
+
+.page.type-about .post-body {
+
+  /* --- 프로필 섹션 --- */
   .about-profile {
-    display: flex;
-    align-items: center; /* 수직 중앙 정렬로 변경 */
-    gap: 30px;
-    margin-top: 20px;
-    margin-bottom: 50px; /* 아래 섹션과 간격 추가 */
-    padding: 25px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    border: 1px solid #eee;
-  }
-  .profile-image-wrapper {
-    flex-shrink: 0;
+    display: flex !important;
+    align-items: center !important;
+    gap: 30px !important;
+    margin-top: 20px !important;
+    margin-bottom: 50px !important;
+    padding: 25px !important;
+    background-color: #f9f9f9 !important;
+    border-radius: 8px !important;
+    border: 1px solid #eee !important;
   }
   .profile-image {
-    width: 150px; /* 이미지 크기 살짝 키움 */
-    height: 150px;
-    border-radius: 50%; /* 원형 이미지로 변경 */
-    object-fit: cover;
+    width: 150px !important;
+    height: 150px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    flex-shrink: 0 !important;
   }
   .profile-details p {
-    margin: 6px 0; /* 단락 간격 재조정 */
-    line-height: 1.6;
-    color: #555;
+    margin: 6px 0 !important;
+    line-height: 1.6 !important;
+    color: #555 !important;
   }
   .profile-details .profile-name {
-    font-size: 2em; /* 이름 강조 */
-    font-weight: 600;
-    color: #222;
-    margin-bottom: 12px;
+    font-size: 2em !important;
+    font-weight: 600 !important;
+    color: #222 !important;
+    margin-bottom: 12px !important;
   }
 
-  /* --- 프로젝트 카드 섹션 (정렬 수정) --- */
+  /* --- 프로젝트 카드 섹션 --- */
   .projects-grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+    gap: 25px !important;
+    margin-top: 20px !important;
   }
   .custom-project-card {
-    border: 1px solid #e2e2e2;
-    border-radius: 12px;
-    background-color: #fff;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
-    overflow: hidden;
-    cursor: pointer;
-    display: flex; /* 내부 요소 정렬을 위해 flex 사용 */
-    flex-direction: column; /* 아이템을 수직으로 쌓음 */
+    border: 1px solid #e2e2e2 !important;
+    border-radius: 12px !important;
+    background-color: #fff !important;
+    transition: box-shadow 0.2s ease, transform 0.2s ease !important;
+    overflow: hidden !important;
+    cursor: pointer !important;
+    display: flex !important;
+    flex-direction: column !important;
   }
   .custom-project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.09);
+    transform: translateY(-5px) !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.09) !important;
   }
   .card-image {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+    width: 100% !important;
+    height: 180px !important;
+    object-fit: cover !important;
   }
   .card-content {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1; /* 이 부분이 카드의 높이를 동일하게 맞춰주는 핵심 */
+    padding: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex-grow: 1 !important;
   }
   .card-meta-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-    font-size: 0.8em;
-    color: #888;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-bottom: 12px !important;
+    font-size: 0.8em !important;
+    color: #888 !important;
   }
   .card-type {
-    padding: 3px 8px;
-    border-radius: 5px;
-    color: #fff;
-    font-weight: 500;
+    padding: 3px 8px !important;
+    border-radius: 5px !important;
+    color: #fff !important;
+    font-weight: 500 !important;
   }
-  .card-type.research { background-color: #005a9e; }
-  .card-type.project { background-color: #006429; }
+  .card-type.research { background-color: #005a9e !important; }
+  .card-type.project { background-color: #006429 !important; }
   .card-content h3 {
-    margin: 0 0 8px 0;
-    font-size: 1.2em;
-    line-height: 1.4;
-    /* 제목이 길어져도 2줄까지만 보이게 처리 */
-    height: 3.2em; /* (line-height * 2) + 알파 */
-    overflow: hidden;
+    margin: 0 0 8px 0 !important;
+    font-size: 1.2em !important;
+    line-height: 1.4 !important;
+    height: 3.2em !important;
+    overflow: hidden !important;
   }
   .card-description {
-    font-size: 0.9em;
-    color: #666;
-    margin-bottom: 15px;
-    flex-grow: 1; /* 설명 부분이 남은 공간을 모두 차지하도록 */
+    font-size: 0.9em !important;
+    color: #666 !important;
+    margin-bottom: 15px !important;
+    flex-grow: 1 !important;
   }
   .card-keywords {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    font-size: 0.8em;
-    color: #777;
-    margin-top: auto; /* 키워드를 항상 카드 하단에 고정 */
-  }
-  .card-keywords span {
-    background-color: #f0f0f0;
-    padding: 2px 8px;
-    border-radius: 10px;
+    margin-top: auto !important;
   }
 }
 
 /* --- 모달 스타일 (수정 없음) --- */
 .modal-overlay {
-  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.7); z-index: 9999;
-  opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;
-  display: flex; justify-content: center; align-items: center; padding: 20px;
+  position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important;
+  background: rgba(0, 0, 0, 0.7) !important; z-index: 9999 !important;
+  opacity: 0 !important; visibility: hidden !important; transition: opacity 0.3s ease, visibility 0.3s ease !important;
+  display: flex !important; justify-content: center !important; align-items: center !important; padding: 20px !important;
 }
-.modal-overlay.is-visible { opacity: 1; visibility: visible; }
+.modal-overlay.is-visible { opacity: 1 !important; visibility: visible !important; }
+/* ... (이하 모달 스타일은 이전과 동일하게 유지) ... */
 .modal-container {
   background: #fff; border-radius: 10px; max-width: 700px; width: 100%;
   max-height: 90vh; display: flex; flex-direction: column;
