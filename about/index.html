@@ -1,212 +1,56 @@
 ---
-layout: page
-type: about
+title: About
 ---
 
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About | Jaehyeon Lee</title>
-    <style>
-        /* 기본 폰트 및 전체 레이아웃 스타일 */
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #fdfdfd;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-        }
-        .container {
-            max-width: 960px;
-            width: 100%;
-        }
-        h1, h2 {
-            border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 40px;
-            margin-bottom: 20px;
-        }
-        h1 {
-            font-size: 2.5em;
-        }
-        h2 {
-            font-size: 1.75em;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* 메인 소개 섹션 (2단 레이아웃) */
-        .intro-section {
-            display: flex;
-            align-items: flex-start;
-            gap: 40px;
-            margin-top: 20px;
-        }
-        .profile-pic-container {
-            flex-shrink: 0;
-        }
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 8px;
-            object-fit: cover;
-        }
-        .profile-info p {
-            margin: 5px 0;
-            font-size: 1.1em;
-            color: #555;
-        }
-        .profile-info .name {
-            font-size: 1.8em;
-            font-weight: bold;
-            color: #000;
-            margin-bottom: 15px;
-        }
-
-        /* 리서치 관심분야 리스트 스타일 */
-        .interest-list {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-        .interest-list li {
-            margin-bottom: 8px;
-        }
-
-        /* 프로젝트 및 퍼블리케이션 카드 스타일 */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .project-card {
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 20px;
-            background-color: #fff;
-            transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-        .project-card h3 {
-            margin-top: 0;
-            font-size: 1.25em;
-        }
-        .project-card p {
-            color: #666;
-            font-size: 0.95em;
-            margin-bottom: 15px;
-        }
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-        }
-        .tag {
-            background-color: #f0f0f0;
-            color: #555;
-            padding: 4px 10px;
-            border-radius: 12px;
-            font-size: 0.8em;
-            font-weight: 500;
-        }
-        .tag.research { background-color: #e7f3ff; color: #005a9e; }
-        .tag.project { background-color: #e6f7ee; color: #006429; }
-        .tag.status { background-color: #fffbe6; color: #b48100; }
-
-        /* 모바일 반응형 */
-        @media (max-width: 768px) {
-            .intro-section {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            body {
-                padding: 15px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>About</h1>
-        </header>
-
-        <main>
-            <section class="intro-section">
-                <div class="profile-pic-container">
-                    <img src="/img/about/image.png" alt="Jaehyeon Lee Profile Picture" class="profile-pic">
-                </div>
-                <div class="profile-info">
-                    <p class="name">Jaehyeon Lee (이재현)</p>
-                    <p>Undergraduate Student</p>
-                    <p>School of Global Media & AI Convergence, Soongsil University</p>
-                    <p>Undergraduate Researcher, Reality Lab, Soongsil University</p>
-                    <p>email : <a href="mailto:gogozzi1102@gmail.com">gogozzi1102 (at) gmail (dot) com</a></p>
-                </div>
-            </section>
-
-            <section>
-                <h2>Short bio</h2>
-                <p>
-                    I am an undergraduate student at Soongsil University, double majoring in Global Media and AI Convergence and an undergraduate researcher at the Reality Lab advised by Prof. Heewon Kim. I have a strong interest in developing novel algorithms and AI technologies applicable to optics, AR displays, and holography. As an undergraduate researcher, my current focus is on creating AI systems capable of generating holograms in real time for use in AR glasses.
-                </p>
-            </section>
-
-            <section>
-                <h2>Research Interests</h2>
-                <ul class="interest-list">
-                    <li>Computer Vision</li>
-                    <li>Deep Learning</li>
-                    <li>Holography</li>
-                    <li>Augmented Reality (AR)</li>
-                    <li>Image Restoration</li>
-                </ul>
-            </section>
-
-            <section>
-                <h2>Projects and Publications</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <h3>Learning and Adapting Phase Prediction Network for AR Glass</h3>
-                        <p>Phase of Hologram Prediction Network를 다양한 hardware 조건에서 Learning and Adapting 방법론 개발</p>
-                        <div class="project-tags">
-                            <span class="tag research">research</span>
-                            <span class="tag status">진행중</span>
-                            <span class="tag">AR glass</span>
-                            <span class="tag">Computer Vision</span>
-                            <span class="tag">Deep Learning</span>
-                            <span class="tag">holography</span>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <h3>Moomu</h3>
-                        <p>AI 기반 무드보드 추천 웹서비스</p>
-                        <div class="project-tags">
-                            <span class="tag project">project</span>
-                            <span class="tag status">진행중</span>
-                            <span class="tag">AI</span>
-                            <span class="tag">backend</span>
-                            <span class="tag">frontend</span>
-                            <span class="tag">web service</span>
-                        </div>
-                    </div>
-                    </div>
-            </section>
-        </main>
+<div class="about-container">
+  <div class="about-profile">
+    <div class="profile-image-wrapper">
+      <img src="/assets/images/profile.png" alt="Jaehyeon Lee Profile Picture" class="profile-image">
     </div>
-</body>
-</html>
+    <div class="profile-details">
+      <p class="profile-name">Jaehyeon Lee (이재현)</p>
+      <p>Undergraduate Student</p>
+      <p>School of Global Media & AI Convergence, Soongsil University</p>
+      <p>Undergraduate Researcher, Reality Lab, Soongsil University</p>
+      <p>Email: <a href="mailto:gogozzi1102@gmail.com">gogozzi1102 (at) gmail (dot) com</a></p>
+    </div>
+  </div>
+</div>
+
+## Short bio
+I am an undergraduate student at Soongsil University, double majoring in Global Media and AI Convergence and an undergraduate researcher at the Reality Lab advised by Prof. Heewon Kim. I have a strong interest in developing novel algorithms and AI technologies applicable to optics, AR displays, and holography. As an undergraduate researcher, my current focus is on creating AI systems capable of generating holograms in real time for use in AR glasses.
+
+## Research Interests
+- Computer Vision
+- Deep Learning
+- Holography
+- Augmented Reality (AR)
+- Image Restoration
+
+## Projects and Publications
+<div class="projects-grid-container">
+  <div class="custom-project-card">
+    <h3>Learning and Adapting Phase Prediction Network for AR Glass</h3>
+    <p class="card-description">Phase of Hologram Prediction Network를 다양한 hardware 조건에서 Learning and Adapting 방법론 개발</p>
+    <div class="card-tags">
+      <span class="tag research">research</span>
+      <span class="tag status">진행중</span>
+      <span class="tag">AR glass</span>
+      <span class="tag">Computer Vision</span>
+      <span class="tag">Deep Learning</span>
+      <span class="tag">holography</span>
+    </div>
+  </div>
+  <div class="custom-project-card">
+    <h3>Moomu</h3>
+    <p class="card-description">AI 기반 무드보드 추천 웹서비스</p>
+    <div class="card-tags">
+      <span class="tag project">project</span>
+      <span class="tag status">진행중</span>
+      <span class="tag">AI</span>
+      <span class="tag">backend</span>
+      <span class="tag">frontend</span>
+      <span class="tag">web service</span>
+    </div>
+  </div>
+  </div>
