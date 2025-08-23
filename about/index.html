@@ -2,10 +2,9 @@
 layout: page
 type: about
 ---
-
 <div class="about-profile">
   <div class="profile-image-wrapper">
-    <img src="/img/about/image.png" alt="Jaehyeon Lee Profile Picture" class="profile-image">
+    <img src="/assets/images/profile.png" alt="Jaehyeon Lee Profile Picture" class="profile-image">
   </div>
   <div class="profile-details">
     <p class="profile-name">Jaehyeon Lee (이재현)</p>
@@ -38,14 +37,18 @@ type: about
        data-modal-keywords="AR glass, Computer Vision, Deep Learning, Image restoration, Optics, holography" 
        data-modal-date="2025-06-01" 
        data-modal-type="research, 진행중" 
-       data-modal-notes="CVPR 2026 붙고싶다。">
-    <img src="/img/about/big-buck-bunny-thumbnail.jpg" alt="Project 1 Image" class="card-image">
+       data-modal-notes="CVPR 2026을 목표로 하고 있습니다.">
+    
+    <img src="/assets/images/projects/project1.jpg" alt="Project 1 Image" class="card-image">
     <div class="card-content">
+      <div class="card-meta-info">
+        <span class="card-date">2025-06-01</span>
+        <span class="card-type research">research</span>
+      </div>
       <h3>Learning and Adapting Phase Prediction Network for AR Glass</h3>
       <p class="card-description">Phase of Hologram Prediction Network를 다양한 hardware 조건에서 Learning and Adapting 방법론 개발</p>
-      <div class="card-tags">
-        <span class="tag research">research</span>
-        <span class="tag status">진행중</span>
+      <div class="card-keywords">
+          <span>#AR glass</span> <span>#Computer Vision</span> <span>#holography</span>
       </div>
     </div>
   </div>
@@ -58,13 +61,17 @@ type: about
        data-modal-date="2025-07-01" 
        data-modal-type="project, 진행중" 
        data-modal-notes="">
-    <img src="/img/about/Moomu.jpg" alt="Project 2 Image" class="card-image">
+    
+    <img src="/assets/images/projects/project2.png" alt="Project 2 Image" class="card-image">
     <div class="card-content">
+      <div class="card-meta-info">
+        <span class="card-date">2025-07-01</span>
+        <span class="card-type project">project</span>
+      </div>
       <h3>Moomu</h3>
       <p class="card-description">AI 기반 무드보드 추천 웹서비스</p>
-      <div class="card-tags">
-        <span class="tag project">project</span>
-        <span class="tag status">진행중</span>
+      <div class="card-keywords">
+          <span>#AI</span> <span>#web service</span> <span>#frontend</span>
       </div>
     </div>
   </div>
@@ -72,16 +79,18 @@ type: about
 </div>
 
 <div id="project-modal" class="modal-overlay">
-  <div class="modal-content">
+  <div class="modal-container">
     <button class="modal-close-button">&times;</button>
-    <img id="modal-img" src="" alt="Project detail image">
-    <h2 id="modal-title"></h2>
-    <div class="modal-details">
-      <p><strong>소개:</strong> <span id="modal-intro"></span></p>
-      <p><strong>키워드:</strong> <span id="modal-keywords"></span></p>
-      <p><strong>날짜:</strong> <span id="modal-date"></span></p>
-      <p><strong>유형:</strong> <span id="modal-type"></span></p>
-      <p id="modal-notes-container"><strong>비고:</strong> <span id="modal-notes"></span></p>
+    <img id="modal-img" src="" alt="Project detail image" class="modal-image">
+    <div class="modal-content">
+      <h2 id="modal-title"></h2>
+      <div class="modal-details">
+        <p><strong>소개</strong> <span id="modal-intro"></span></p>
+        <p><strong>유형</strong> <span id="modal-type"></span></p>
+        <p><strong>날짜</strong> <span id="modal-date"></span></p>
+        <p><strong>키워드</strong> <span id="modal-keywords"></span></p>
+        <p id="modal-notes-container"><strong>비고</strong> <span id="modal-notes"></span></p>
+      </div>
     </div>
   </div>
 </div>
@@ -91,23 +100,23 @@ type: about
 document.addEventListener('DOMContentLoaded', function() {
     const cards = document.querySelectorAll('.custom-project-card');
     const modal = document.getElementById('project-modal');
-    const modalCloseButton = modal.querySelector('.modal-close-button');
-    const modalOverlay = document.querySelector('.modal-overlay');
-
     if (!modal) return;
+
+    const modalCloseButton = modal.querySelector('.modal-close-button');
+    const modalOverlay = modal; // The overlay is the modal itself
 
     cards.forEach(card => {
         card.addEventListener('click', () => {
-            // 카드로부터 데이터 읽어오기
+            // 카드로부터 data-modal-* 속성값 읽어오기
             const data = card.dataset;
             
-            // 모달에 데이터 채우기
-            document.getElementById('modal-img').src = data.modalImage;
-            document.getElementById('modal-title').textContent = data.modalTitle;
-            document.getElementById('modal-intro').textContent = data.modalIntro;
-            document.getElementById('modal-keywords').textContent = data.modalKeywords;
-            document.getElementById('modal-date').textContent = data.modalDate;
-            document.getElementById('modal-type').textContent = data.modalType;
+            // 모달의 각 요소에 데이터 채우기
+            document.getElementById('modal-img').src = data.modalImage || '';
+            document.getElementById('modal-title').textContent = data.modalTitle || '제목 없음';
+            document.getElementById('modal-intro').textContent = data.modalIntro || '';
+            document.getElementById('modal-keywords').textContent = data.modalKeywords || '';
+            document.getElementById('modal-date').textContent = data.modalDate || '';
+            document.getElementById('modal-type').textContent = data.modalType || '';
 
             const notesContainer = document.getElementById('modal-notes-container');
             const notesSpan = document.getElementById('modal-notes');
@@ -115,16 +124,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 notesSpan.textContent = data.modalNotes;
                 notesContainer.style.display = 'block';
             } else {
+                notesSpan.textContent = '';
                 notesContainer.style.display = 'none';
             }
             
             // 모달 보이기
-            modal.style.display = 'flex';
+            modal.classList.add('is-visible');
         });
     });
 
     function closeModal() {
-        modal.style.display = 'none';
+        modal.classList.remove('is-visible');
     }
 
     // 닫기 버튼 또는 모달 바깥 영역 클릭 시 모달 닫기

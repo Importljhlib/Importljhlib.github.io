@@ -1,125 +1,65 @@
-/* About 페이지 커스텀 스타일 (모달 기능 포함) */
+/* About 페이지 커스텀 스타일 (최종 버전) */
 
 .post-body {
-
-  /* 1. 프로필 섹션 (기존과 동일) */
-  .about-profile {
-    display: flex; align-items: flex-start; gap: 30px; margin-top: 20px; margin-bottom: 40px;
-    padding: 20px; background-color: #f9f9f9; border-radius: 8px; border: 1px solid #eee;
-  }
+  /* 프로필 섹션은 이전과 동일 */
+  .about-profile { display: flex; align-items: flex-start; gap: 30px; margin-top: 20px; margin-bottom: 40px; padding: 20px; background-color: #f9f9f9; border-radius: 8px; border: 1px solid #eee; }
   .profile-image-wrapper { flex-shrink: 0; }
   .profile-image { width: 140px; height: 140px; border-radius: 8px; object-fit: cover; }
   .profile-details p { margin: 4px 0; line-height: 1.5; color: #555; }
   .profile-details .profile-name { font-size: 1.8em; font-weight: 600; color: #222; margin-bottom: 10px; }
   
-  /* 2. 프로젝트 카드 그리드 */
+  /* --- 프로젝트 카드 섹션 (디자인 개선) --- */
   .projects-grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 25px;
     margin-top: 20px;
   }
-
-  /* 3. 개별 프로젝트 카드 스타일 (이미지 포함) */
   .custom-project-card {
-    border: 1px solid #e2e2e2;
-    border-radius: 12px;
-    background-color: #fff;
+    border: 1px solid #e2e2e2; border-radius: 12px; background-color: #fff;
     transition: box-shadow 0.2s ease, transform 0.2s ease;
-    overflow: hidden; /* 이미지가 카드를 벗어나지 않도록 */
-    cursor: pointer;
+    overflow: hidden; cursor: pointer; display: flex; flex-direction: column;
   }
-  .custom-project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.09);
-  }
-  .card-image {
-    width: 100%;
-    height: 180px;
-    object-fit: cover; /* 이미지가 비율에 맞게 잘리도록 */
-    border-bottom: 1px solid #e2e2e2;
-  }
-  .card-content {
-    padding: 15px 20px;
-  }
-  .card-content h3 {
-    margin-top: 0;
-    margin-bottom: 8px;
-    font-size: 1.2em;
-    line-height: 1.4;
-  }
-  .card-description {
-    font-size: 0.9em;
-    color: #666;
-    margin-bottom: 15px;
-    height: 40px; /* 2줄 정도의 높이로 제한 */
-    overflow: hidden;
-  }
-  .card-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .card-tags .tag {
-    background-color: #f0f0f0; color: #555; padding: 4px 10px;
-    border-radius: 12px; font-size: 0.8em; font-weight: 500;
-  }
-  .card-tags .tag.research { background-color: #e7f3ff; color: #005a9e; }
-  .card-tags .tag.project { background-color: #e6f7ee; color: #006429; }
-  .card-tags .tag.status { background-color: #fffbe6; color: #b48100; }
+  .custom-project-card:hover { transform: translateY(-5px); box-shadow: 0 6px 20px rgba(0,0,0,0.09); }
+  .card-image { width: 100%; height: 180px; object-fit: cover; border-bottom: 1px solid #e2e2e2; }
+  .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+  .card-meta-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 0.8em; color: #888; }
+  .card-type { padding: 3px 8px; border-radius: 5px; color: #fff; font-weight: 500; }
+  .card-type.research { background-color: #005a9e; }
+  .card-type.project { background-color: #006429; }
+  .card-content h3 { margin: 0 0 8px 0; font-size: 1.2em; line-height: 1.4; }
+  .card-description { font-size: 0.9em; color: #666; margin-bottom: 15px; flex-grow: 1; }
+  .card-keywords { display: flex; flex-wrap: wrap; gap: 6px; font-size: 0.8em; color: #777; }
+  .card-keywords span { background-color: #f0f0f0; padding: 2px 8px; border-radius: 10px; }
 
-  /* 4. 모달(팝업창) 스타일 */
+  /* --- 모달(팝업창) 스타일 (디자인 개선) --- */
   .modal-overlay {
-    display: none; /* 평소에는 숨김 */
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+    display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7); justify-content: center; align-items: center; z-index: 1000;
   }
-  .modal-content {
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 700px;
-    width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
+  .modal-overlay.is-visible { display: flex; } /* JS로 이 클래스를 제어 */
+  .modal-container {
+    background: #fff; border-radius: 10px; max-width: 700px; width: 90%;
+    max-height: 90vh; display: flex; flex-direction: column;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   }
   .modal-close-button {
-    position: absolute;
-    top: 15px; right: 20px;
-    background: none; border: none;
-    font-size: 2.2em;
-    line-height: 1;
-    color: #aaa;
-    cursor: pointer;
+    position: absolute; top: 15px; right: 20px; background: none; border: none;
+    font-size: 2.2em; line-height: 1; color: #aaa; cursor: pointer; z-index: 1010;
   }
   .modal-close-button:hover { color: #333; }
-  #modal-img {
-    width: 100%;
-    height: auto;
-    max-height: 400px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  }
-  #modal-title {
-    margin-top: 0;
-  }
+  .modal-image { width: 100%; height: 350px; object-fit: cover; border-radius: 10px 10px 0 0; }
+  .modal-content { padding: 30px; overflow-y: auto; }
+  #modal-title { margin-top: 0; margin-bottom: 20px; }
   .modal-details p {
-    margin: 10px 0;
-    line-height: 1.6;
-    color: #333;
+    margin: 12px 0; line-height: 1.6; color: #333; border-bottom: 1px solid #f0f0f0; padding-bottom: 12px;
+    display: grid; grid-template-columns: 80px 1fr;
   }
-  .modal-details p strong {
-    color: #000;
-    margin-right: 8px;
-  }
+  .modal-details p:last-child { border-bottom: none; }
+  .modal-details p strong { color: #000; }
+  #modal-notes-container { display: block; } /* 기본적으로 보이게 설정하고 JS에서 제어 */
 
-  /* 모바일 화면 대응 */
   @media (max-width: 767px) {
     .about-profile { flex-direction: column; align-items: center; text-align: center; }
   }
-
 }
